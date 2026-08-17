@@ -7,8 +7,8 @@ Meal plan and shopping list
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0f1117">
-<meta name="description" content="Kiska & Paul — 6 week meal plan">
-<title>Kiska &amp; Paul — 6 Week Plan</title>
+<meta name="description" content="K & P — 6 week meal plan">
+<title>K &amp; P — 6 Week Plan</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,'Inter',system-ui,sans-serif;background:#0f1117;color:#e8e8e4}
@@ -114,12 +114,12 @@ body{font-family:-apple-system,'Inter',system-ui,sans-serif;background:#0f1117;c
 </head>
 <body>
 <div class="hdr"><div class="in">
-<h1>🥗 Kiska &amp; Paul — 6 Week Plan</h1>
+<h1>🥗 K &amp; P — 6 Week Plan</h1>
 <p>Mediterranean · High Protein · Low Carb · Tofu &amp; Tempeh Forward · Free Recipes Only</p>
 <div class="today">
 <div><div class="today-l">PLAN STARTS</div><input type="date" id="startDate" onchange="setStart()"></div>
 <div><div class="today-l">TODAY</div><div class="today-d" id="todayLbl">—</div></div>
-<div><div class="today-l">KISKA PROTEIN TARGET</div><select id="proSel" onchange="setProTarget()" style="background:#0a1510;border:1px solid #2a4a3a;color:#a8d5b8;border-radius:6px;padding:4px 8px;font-size:11px;font-family:inherit"><option value="140">140g — realistic</option><option value="160">160g — coach's target</option></select></div><button class="btn-s" onclick="jumpToday()">Jump to today</button>
+<div><div class="today-l">K PROTEIN TARGET</div><select id="proSel" onchange="setProTarget()" style="background:#0a1510;border:1px solid #2a4a3a;color:#a8d5b8;border-radius:6px;padding:4px 8px;font-size:11px;font-family:inherit"><option value="140">140g — realistic</option><option value="160">160g — coach's target</option></select></div><button class="btn-s" onclick="jumpToday()">Jump to today</button>
 </div>
 </div></div>
 <div class="nav"><div class="nav-in" id="navBar"></div></div>
@@ -177,7 +177,7 @@ const KALE={n:"Your Kale Salad 🥬 + edamame",d:"500g kale, red + green pepper,
 
 // ─── DINNERS: one base dish, protein swapped ─────────────────────
 // dn:{n:base name, d:base description, r:[mins,src,query],
-//     k:{sw:Kiska's protein, c, pr}, p:{sw:Paul's protein, c, pr}, eggs:true if both eggs}
+//     k:{sw:K's protein, c, pr}, p:{sw:P's protein, c, pr}, eggs:true if both eggs}
 const TACO={n:"🌮 Taco Tuesday",d:"Homemade flour tortillas, black beans, grilled peppers, onions & tomatoes, cheese, soured cream, hot sauce",
  taco:1,k:{sw:"Extra black beans + cheese",c:520,pr:36},p:{sw:"Grilled chicken or beef mince",c:760,pr:56}};
 const DELIV={n:"🥡 SE Asian Delivery",d:"Your easy night — nothing to cook or shop for",
@@ -324,48 +324,48 @@ const SHOP=[
 {fresh:[
  {t:"🥬 Produce",i:["Rocket × 3 bags","Baby spinach × 2 bags","Cucumber × 6","Cherry tomatoes × 3 punnets","Courgettes × 3","Red peppers × 3 (+2 in taco list)","Red onion × 2","Watermelon × 1 small","Avocado × 4","Carrots × 2","Pak choi × 1","Spring onions × 1 bunch","Lemons × 6","Garlic × 1 bulb","Fresh ginger × 1 piece","Mint × 1 bunch","Parsley × 1 bunch","Dill × 1 bunch"]},
  {t:"🧀 Dairy & Eggs",i:["Eggs × 12","Halloumi × 2 packs","Feta × 2 blocks","Greek yoghurt (large) × 2","Cottage cheese × 1 tub","Tzatziki × 1 tub"]},
- {t:"🌱 Kiska — Protein Swaps Only",i:["Firm tofu × 2 packs","Silken tofu × 1 pack","Tempeh × 1 pack","Pre-cooked puy lentils × 1 pack"]},
- {t:"🍗 Paul — Protein Swaps Only",i:["Sea bass fillets × 2","Cod fillets × 2","Chicken thighs × 4","Sirloin steak × 2"]},
+ {t:"🌱 K — Protein Swaps Only",i:["Firm tofu × 2 packs","Silken tofu × 1 pack","Tempeh × 1 pack","Pre-cooked puy lentils × 1 pack"]},
+ {t:"🍗 P — Protein Swaps Only",i:["Sea bass fillets × 2","Cod fillets × 2","Chicken thighs × 4","Sirloin steak × 2"]},
  {t:"🧆 Deli",i:["Houmous (large) × 1"]},
 ]},
 // W2
 {fresh:[
  {t:"🥬 Produce",i:["Rocket × 2 bags","Baby spinach × 2 bags","Cucumber × 6","Cherry tomatoes × 3 punnets","Radishes × 1 bunch","Aubergines × 2","Courgettes × 2","Red peppers × 3 (+2 taco)","Pak choi × 2","Broccoli × 1 head","Mango × 1","Avocado × 2","Pomegranate seeds × 1 pot","Red onion × 2","Lemons × 6","Garlic × 1 bulb","Mint × 1 bunch","Parsley × 2 bunches","Coriander × 1 bunch","Basil × 1 bunch"]},
  {t:"🧀 Dairy & Eggs",i:["Eggs × 14","Halloumi × 1 pack","Feta × 2 blocks","Burrata × 1 ball","Greek yoghurt (large) × 2"]},
- {t:"🌱 Kiska — Protein Swaps Only",i:["Tempeh × 2 packs","Firm tofu × 1 pack"]},
- {t:"🍗 Paul — Protein Swaps Only",i:["Chicken breast × 2","Cod fillets × 2","Turkey mince × 1 pack","King prawns (cooked) × 1 pack"]},
+ {t:"🌱 K — Protein Swaps Only",i:["Tempeh × 2 packs","Firm tofu × 1 pack"]},
+ {t:"🍗 P — Protein Swaps Only",i:["Chicken breast × 2","Cod fillets × 2","Turkey mince × 1 pack","King prawns (cooked) × 1 pack"]},
  {t:"🧆 Deli",i:["Houmous (large) × 1","Dolmades × 1 tin"]},
 ]},
 // W3
 {fresh:[
  {t:"🥬 Produce",i:["Rocket × 3 bags","Baby spinach × 1 bag","Cucumber × 4","Cherry tomatoes × 2 punnets","Heirloom tomatoes × 2 punnets","Courgettes × 5 (incl. spiralising)","Aubergine × 1","Green beans × 2 packs","White peaches × 2","Red peppers × 2 (taco)","Red onion × 2","Avocado × 2","Peas (fresh or frozen)","Lemons × 6","Garlic × 1 bulb","Basil × 2 bunches","Parsley × 1 bunch","Mint × 1 bunch"]},
  {t:"🧀 Dairy & Eggs",i:["Eggs × 16","Burrata × 1 ball","Feta × 1 block","Ricotta × 2 tubs","Parmesan × 1 piece","Greek yoghurt (large) × 2"]},
- {t:"🌱 Kiska — Protein Swaps Only",i:["Firm tofu × 2 packs","Tempeh × 1 pack"]},
- {t:"🍗 Paul — Protein Swaps Only",i:["Chicken breast × 4","Swordfish steaks × 2","King prawns (raw) × 1 pack","Sea bass fillets × 2"]},
+ {t:"🌱 K — Protein Swaps Only",i:["Firm tofu × 2 packs","Tempeh × 1 pack"]},
+ {t:"🍗 P — Protein Swaps Only",i:["Chicken breast × 4","Swordfish steaks × 2","King prawns (raw) × 1 pack","Sea bass fillets × 2"]},
  {t:"🧆 Deli",i:["Sun-dried tomatoes × 1 jar","Gazpacho × 1 carton (or make)"]},
 ]},
 // W4
 {fresh:[
  {t:"🥬 Produce",i:["Rocket × 2 bags","Baby spinach × 2 bags","Cucumber × 6","Cherry tomatoes × 2 punnets","Aubergines × 3","Cauliflower × 1","Carrots × 4","Radishes × 1 bunch","Little gem lettuce × 2","Red peppers × 3 (+2 taco)","Red onion × 2","Pomegranate seeds × 1 pot","Lemons × 6","Garlic × 1 bulb","Mint × 1 bunch","Parsley × 2 bunches","Coriander × 2 bunches"]},
  {t:"🧀 Dairy & Eggs",i:["Eggs × 12","Halloumi × 2 packs","Feta × 2 blocks","Greek yoghurt (large) × 2"]},
- {t:"🌱 Kiska — Protein Swaps Only",i:["Tempeh × 2 packs","Firm tofu × 1 pack"]},
- {t:"🍗 Paul — Protein Swaps Only",i:["Chicken breast × 2","Sea bass fillets × 2","King prawns (raw) × 1 pack"]},
+ {t:"🌱 K — Protein Swaps Only",i:["Tempeh × 2 packs","Firm tofu × 1 pack"]},
+ {t:"🍗 P — Protein Swaps Only",i:["Chicken breast × 2","Sea bass fillets × 2","King prawns (raw) × 1 pack"]},
  {t:"🧆 Deli",i:["Houmous (large) × 1"]},
 ]},
 // W5
 {fresh:[
  {t:"🥬 Produce",i:["Rocket × 3 bags","Cucumber × 4","Cherry tomatoes × 3 punnets","Beef tomatoes × 4 (stuffing)","Courgettes × 4","Aubergines × 3","Red peppers × 3 (+2 taco)","Green beans × 2 packs","Asparagus × 1 bunch","Fennel × 1 bulb","Oranges × 2","Cooked beetroot × 1 pack","Shallots × 4","Red onion × 1","Lemons × 6","Garlic × 1 bulb","Basil × 2 bunches","Tarragon × 1 bunch","Parsley × 1 bunch","Thyme × 1 bunch"]},
  {t:"🧀 Dairy & Eggs",i:["Eggs × 16","Burrata × 1 ball","Goat's cheese × 2 logs","Feta × 1 block","Parmesan × 1 piece","Greek yoghurt (large) × 2"]},
- {t:"🌱 Kiska — Protein Swaps Only",i:["Tempeh × 2 packs","Firm tofu × 1 pack"]},
- {t:"🍗 Paul — Protein Swaps Only",i:["Chicken breast × 4","Sirloin steak × 2","Cod fillets × 2","Sea bass fillets × 2"]},
+ {t:"🌱 K — Protein Swaps Only",i:["Tempeh × 2 packs","Firm tofu × 1 pack"]},
+ {t:"🍗 P — Protein Swaps Only",i:["Chicken breast × 4","Sirloin steak × 2","Cod fillets × 2","Sea bass fillets × 2"]},
  {t:"🧆 Deli",i:["Pesto × 1 small jar","Anchovies × 1 tin (optional)"]},
 ]},
 // W6
 {fresh:[
  {t:"🥬 Produce",i:["Rocket × 2 bags","Romaine lettuce × 2","Cucumber × 5","Cherry tomatoes × 2 punnets","Heirloom tomatoes × 2 punnets","Courgettes × 3","Carrots × 4","Red cabbage × 1 small","Pak choi × 2","Mangoes × 3","White peaches × 2","Avocado × 4","Red peppers × 2 (taco)","Red onion × 1","Spring onions × 1 bunch","Lemons × 5","Limes × 3","Garlic × 1 bulb","Fresh ginger × 1 piece","Coriander × 2 bunches","Basil × 1 bunch","Mint × 1 bunch"]},
  {t:"🧀 Dairy & Eggs",i:["Eggs × 14","Halloumi × 2 packs","Feta × 1 block","Burrata × 1 ball","Ricotta × 1 tub","Parmesan × 1 piece","Greek yoghurt (large) × 2","Tzatziki × 1 tub"]},
- {t:"🌱 Kiska — Protein Swaps Only",i:["Tempeh × 2 packs","Firm tofu × 1 pack"]},
- {t:"🍗 Paul — Protein Swaps Only",i:["Chicken thighs × 4","Chicken breast × 2","Turkey mince × 1 pack","Sea bass fillets × 2"]},
+ {t:"🌱 K — Protein Swaps Only",i:["Tempeh × 2 packs","Firm tofu × 1 pack"]},
+ {t:"🍗 P — Protein Swaps Only",i:["Chicken thighs × 4","Chicken breast × 2","Turkey mince × 1 pack","Sea bass fillets × 2"]},
  {t:"🧆 Deli",i:["Houmous (large) × 1","Dolmades × 1 tin"]},
 ]},
 ];
@@ -419,7 +419,7 @@ function card(m,who,emoji,label,isBf){
   const badges=isBf
     ?`<span class="bk">${m.kc} · ${m.kp}g</span><span class="bp">${m.pc} · ${m.pp}g</span>`
     :`<span class="${who==="k"?"bk":"bp"}">${m.c} kcal</span><span class="bpro">${m.pr}g</span>`;
-  const sub=isBf?"":`<span style="font-size:9.5px;font-weight:600;color:${col};margin-left:5px">${who==="k"?"Kiska 🌿":"Paul 🍖"}</span>`;
+  const sub=isBf?"":`<span style="font-size:9.5px;font-weight:600;color:${col};margin-left:5px">${who==="k"?"K 🌿":"P 🍖"}</span>`;
   return `<div class="c ${cls}" style="grid-column:${isBf?"1/-1":"auto"}">
    <div class="ch"><div><span class="cl">${emoji} ${label}</span>${sub}</div><div class="badges">${badges}</div></div>
    <div class="cn" style="color:${col}">${m.n}</div><div class="cd">${m.d}</div>${recipeRow(m)}
@@ -439,12 +439,12 @@ function dinnerCard(dn){
    ${recipeRow(dn)}
    <div class="swaps">
      <div class="swap k">
-       <div class="swap-who">Kiska 🌿</div>
+       <div class="swap-who">K 🌿</div>
        <div class="swap-p">${dn.k.sw}</div>
        <div class="swap-n"><span class="bk">${dn.k.c} kcal</span><span class="bpro">${dn.k.pr}g</span></div>
      </div>
      <div class="swap p">
-       <div class="swap-who">Paul 🍖</div>
+       <div class="swap-who">P 🍖</div>
        <div class="swap-p">${dn.p.sw}</div>
        <div class="swap-n"><span class="bp">${dn.p.c} kcal</span><span class="bpro">${dn.p.pr}g</span></div>
      </div>
@@ -475,10 +475,10 @@ function viewPlan(){
   ${dinnerCard(dn)}
   <div class="box"><h3>📊 Running Totals — meals only</h3>
    <div class="tot">
-    <div class="tb"><div class="tbn" style="color:#a8d5b8">Kiska ${kT.tr?"⚡":""}</div>
+    <div class="tb"><div class="tbn" style="color:#a8d5b8">K ${kT.tr?"⚡":""}</div>
       ${meter("Protein",kp,kT.pro,"#c4a8f5","g")}${meter("Calories",kc,kT.cal,"#a8d5b8","")}
       <label class="tog"><input type="checkbox" ${kT.tr?"checked":""} onchange="toggleTraining(${S.week},${S.day},'k')"> Training day</label></div>
-    <div class="tb"><div class="tbn" style="color:#93c5fd">Paul ${pT.tr?"⚡":""}</div>
+    <div class="tb"><div class="tbn" style="color:#93c5fd">P ${pT.tr?"⚡":""}</div>
       ${meter("Protein",pp,pT.pro,"#c4a8f5","g")}${meter("Calories",pc,pT.cal,"#93c5fd","")}
       <label class="tog"><input type="checkbox" ${pT.tr?"checked":""} onchange="toggleTraining(${S.week},${S.day},'p')"> Training day</label></div>
    </div>
@@ -517,8 +517,8 @@ function viewShop(wi){
   const s=SHOP[wi];
   let h=`<div class="box" style="margin-top:0"><h3>🛒 Week ${wi+1} — Fresh Shop</h3>
    <div class="tbd">You now cook <b>one base dish</b> each night, so the vegetables below feed you both — no doubling up.
-   The only split is the protein: tofu and tempeh for Kiska, chicken and fish for Paul.<br><br>
-   Pantry staples are on their own tab. No lunch items for Paul (Tossed). No Wednesday dinner items (delivery). No lamb.</div></div>`;
+   The only split is the protein: tofu and tempeh for K, chicken and fish for P.<br><br>
+   Pantry staples are on their own tab. No lunch items for P (Tossed). No Wednesday dinner items (delivery). No lamb.</div></div>`;
   s.fresh.forEach((sec,i)=>h+=shopSection(sec,"w"+wi,i));
   h+=shopSection({t:"🌮 Taco Tuesday",i:TACO_SHOP},"w"+wi,99);
   return h;
@@ -532,21 +532,21 @@ function viewPantry(){
 function viewTips(){
   return `
   <div class="box" style="margin-top:0"><h3>🎯 The One Number That Matters</h3>
-   <div class="tip"><span class="ti">💪</span><div><div class="tt">Protein: 160g Kiska · 170g Paul</div><div class="tbd">This protects muscle while you're in deficit. Calories can drift a little; protein shouldn't. Every meal card shows its protein in purple, and the daily meter tells you how far off you are.</div></div></div>
+   <div class="tip"><span class="ti">💪</span><div><div class="tt">Protein: 160g K · 170g P</div><div class="tbd">This protects muscle while you're in deficit. Calories can drift a little; protein shouldn't. Every meal card shows its protein in purple, and the daily meter tells you how far off you are.</div></div></div>
    <div class="tip"><span class="ti">🫘</span><div><div class="tt">Tempeh, tofu & edamame — the how</div><div class="tbd"><b>Tempeh</b> (~19g protein/100g): slice, marinate in soy, garlic and ginger, bake 25 min at 200°C. <b>Tofu</b> (~17g/100g): use extra-firm, press 15 min, crumble rather than cube for maximum crispy edges, bake 25–30 min at 220°C. <b>Edamame</b> (~11g/100g): straight from frozen, 3 min in the microwave. Keep bags in the freezer as your emergency protein.</div></div></div>
    <div class="tip"><span class="ti">🥬</span><div><div class="tt">100–150g green veg with every dinner</div><div class="tbd">Rocket, spinach, pak choi, broccoli, cucumber. Fibre and volume for very few calories.</div></div></div>
    <div class="tip"><span class="ti">🍞</span><div><div class="tt">Taco Tuesday is the planned exception</div><div class="tbd">Every other day sits under about 50g carbs. Tuesday doesn't, deliberately. One planned higher-carb night a week is far more sustainable than pretending you'll never eat a tortilla.</div></div></div>
    <div class="tip"><span class="ti">💧</span><div><div class="tt">3 litres of water a day</div><div class="tbd">Big bottle on the desk at both offices.</div></div></div>
   </div>
-  <div class="warn"><b>⚠️ Why the protein target defaults to 140g</b><br><br>Protein costs calories. Across realistic vegetarian sources — powder at 4.4 kcal per gram of protein, tofu 8.5, tempeh 10.1, edamame 11.0, eggs 11.7, halloumi 14.6 — a real diet with vegetables and healthy fats runs about 9–10 kcal per gram of protein.<br><br>Running the full six weeks with the snacks needed to reach each target:<br>• <b>140g</b> → averages <b>1,420 kcal</b>, just 1.4% over your 1,400 target ✓<br>• <b>160g</b> → averages <b>1,530 kcal</b>, 9.3% over ✗<br><br>Your coach's own rule is a weekly average within 5%. At 160g you would breach that every single week — not through poor discipline, but arithmetic. 140g is still well above what's needed to protect muscle in a deficit.<br><br>The toggle above switches to 160g if your coach prefers it. Expect the meter to run short most days.<br><br><b>Paul:</b> his meals plus one shake average 1,828 kcal against a 1,900 target — 3.8% under, so he has room for a generous evening snack. That 1,900 figure is still my estimate; two weeks of MyFitnessPal will confirm it.</div>
+  <div class="warn"><b>⚠️ Why the protein target defaults to 140g</b><br><br>Protein costs calories. Across realistic vegetarian sources — powder at 4.4 kcal per gram of protein, tofu 8.5, tempeh 10.1, edamame 11.0, eggs 11.7, halloumi 14.6 — a real diet with vegetables and healthy fats runs about 9–10 kcal per gram of protein.<br><br>Running the full six weeks with the snacks needed to reach each target:<br>• <b>140g</b> → averages <b>1,420 kcal</b>, just 1.4% over your 1,400 target ✓<br>• <b>160g</b> → averages <b>1,530 kcal</b>, 9.3% over ✗<br><br>Your coach's own rule is a weekly average within 5%. At 160g you would breach that every single week — not through poor discipline, but arithmetic. 140g is still well above what's needed to protect muscle in a deficit.<br><br>The toggle above switches to 160g if your coach prefers it. Expect the meter to run short most days.<br><br><b>P:</b> his meals plus one shake average 1,828 kcal against a 1,900 target — 3.8% under, so he has room for a generous evening snack. That 1,900 figure is still my estimate; two weeks of MyFitnessPal will confirm it.</div>
   <div class="box"><h3>🍽 How Dinners Work Now</h3>
    <div class="tip"><span class="ti">1️⃣</span><div><div class="tt">One base dish, cooked once</div><div class="tbd">The vegetables, sauce and seasoning are identical for both of you. You're cooking a single meal, not two.</div></div></div>
-   <div class="tip"><span class="ti">2️⃣</span><div><div class="tt">Protein cooked separately, added at the end</div><div class="tbd">Kiska's tofu or tempeh goes in one pan or tray, Paul's chicken or fish in another. Both get folded into the same base at the table.</div></div></div>
-   <div class="tip"><span class="ti">🥚</span><div><div class="tt">Egg nights — you eat the same thing</div><div class="tbd">Shakshuka, menemen, the frittatas and the French omelette. Five nights across the six weeks where there's no swap at all, just a bigger portion for Paul.</div></div></div>
-   <div class="tip" style="border:none;padding:0;margin:0"><span class="ti">🚫</span><div><div class="tt">No lamb</div><div class="tbd">Removed throughout. Paul's proteins are chicken, sea bass, cod, tuna, prawns, turkey, beef mince on Taco Tuesday, and eggs.</div></div></div>
+   <div class="tip"><span class="ti">2️⃣</span><div><div class="tt">Protein cooked separately, added at the end</div><div class="tbd">K's tofu or tempeh goes in one pan or tray, P's chicken or fish in another. Both get folded into the same base at the table.</div></div></div>
+   <div class="tip"><span class="ti">🥚</span><div><div class="tt">Egg nights — you eat the same thing</div><div class="tbd">Shakshuka, menemen, the frittatas and the French omelette. Five nights across the six weeks where there's no swap at all, just a bigger portion for P.</div></div></div>
+   <div class="tip" style="border:none;padding:0;margin:0"><span class="ti">🚫</span><div><div class="tt">No lamb</div><div class="tbd">Removed throughout. P's proteins are chicken, sea bass, cod, tuna, prawns, turkey, beef mince on Taco Tuesday, and eggs.</div></div></div>
   </div>
   <div class="box"><h3>⏱ Sunday Prep — 40 minutes</h3>
-   <div class="tip"><span class="ti">1️⃣</span><div><div class="tt">Bake a tray of tempeh and a tray of tofu</div><div class="tbd">Both keep 4 days in the fridge and cover most of Kiska's dinners. This is the single highest-value 30 minutes of the week.</div></div></div>
+   <div class="tip"><span class="ti">1️⃣</span><div><div class="tt">Bake a tray of tempeh and a tray of tofu</div><div class="tbd">Both keep 4 days in the fridge and cover most of K's dinners. This is the single highest-value 30 minutes of the week.</div></div></div>
    <div class="tip"><span class="ti">2️⃣</span><div><div class="tt">Hard boil 6 eggs</div><div class="tbd">Breakfasts, lunches, snacks. 12g protein per two.</div></div></div>
    <div class="tip"><span class="ti">3️⃣</span><div><div class="tt">Make a jar of tahini-lemon dressing</div><div class="tbd">Tahini, lemon, garlic, water. Goes on almost every lunch this plan contains.</div></div></div>
    <div class="tip"><span class="ti">4️⃣</span><div><div class="tt">Make the kale salad — it covers Tuesday and Friday</div><div class="tbd">One batch (500g kale, both peppers, carrot, 100g houmous, 2 tbsp almond butter) = 851 kcal and 40g protein, so it splits neatly into two 425 kcal lunches at 20g protein each. Kale holds up dressed for days, unlike softer leaves.</div></div></div>
@@ -557,7 +557,7 @@ function viewTips(){
    <div class="tip"><span class="ti">➕</span><div><div class="tt">Closing the gap</div><div class="tbd">100g cottage cheese adds 11g protein for 98 kcal — the leanest option. 100g edamame is near-identical at 11g for 121 kcal and suits the salad better. Either takes you to about 31g and 525 kcal, in line with your other lunches.</div></div></div>
    <div class="tip"><span class="ti">🥜</span><div><div class="tt">Worth noting</div><div class="tbd">Almond butter and houmous together account for 490 of the 851 calories and 42 of the 48g of fat. That's fine — they're the flavour and the healthy fats — but if you ever need to trim the salad down, halving the almond butter saves 95 kcal per serving and costs only 3g of protein.</div></div></div>
   </div>
-  <div class="box"><h3>🍖 Paul at Tossed</h3>
+  <div class="box"><h3>🍖 P at Tossed</h3>
    <div class="tip"><span class="ti">✅</span><div><div class="tt">Order this</div><div class="tbd">Double grilled chicken on a leaf base, as many veg toppings as they'll give you, no dressing — ask for lemon wedges instead. Add egg or avocado if they have it.</div></div></div>
    <div class="tip"><span class="ti">⚠️</span><div><div class="tt">Skip this</div><div class="tbd">Dressings (easily 200+ calories), croutons, anything "crispy", and grain bases. Protein and veg only.</div></div></div>
   </div>
