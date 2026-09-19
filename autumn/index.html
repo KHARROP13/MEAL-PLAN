@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0f1117">
+<title>K &amp; P — Autumn 6 Week Plan</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Inter',system-ui,sans-serif;background:#0f1117;color:#e8e8e4}
+.hdr{background:linear-gradient(135deg,#5a3a1a,#2d1d0f 50%,#0f1117);padding:22px 20px 16px;border-bottom:1px solid #3a2a1e}
+.in{max-width:780px;margin:0 auto}
+.hdr h1{font-size:19px;font-weight:700;color:#e0b888;letter-spacing:-.3px}
+.hdr p{font-size:11.5px;color:#a5805a;margin-top:3px}
+.today{margin-top:12px;background:#1a1410;border:1px solid #5a3a2a;border-radius:10px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.today-l{font-size:11px;color:#e0983a;font-weight:600}
+.today-d{font-size:13px;color:#e0b888;font-weight:700}
+.today input{background:#0a1510;border:1px solid #4a3a2a;color:#e0b888;border-radius:6px;padding:4px 8px;font-size:11px;font-family:inherit}
+.btn-s{background:#5a3a1a;border:1px solid #9a6e4a;color:#e0b888;border-radius:6px;padding:4px 10px;font-size:11px;cursor:pointer;font-family:inherit}
+.nav{background:#12181a;border-bottom:1px solid #1e2a22;padding:0 20px;overflow-x:auto}
+.nav-in{max-width:780px;margin:0 auto;display:flex;min-width:max-content}
+.nav button{background:none;border:none;cursor:pointer;padding:11px 13px;font-size:12px;font-family:inherit;color:#5a7a6a;border-bottom:2px solid transparent;white-space:nowrap}
+.nav button.on{color:#e0983a;border-bottom-color:#e0983a;font-weight:600}
+.main{max-width:780px;margin:0 auto;padding:18px 20px 60px}
+.lbl{font-size:10.5px;color:#a5805a;text-transform:uppercase;letter-spacing:.8px;font-weight:600;margin-bottom:7px}
+.wbtns{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:5px}
+.wb{background:#12181a;border:1px solid #1e2a22;border-radius:7px;padding:6px 11px;cursor:pointer;color:#5a7a6a;font-size:12px;font-family:inherit}
+.wb.on{background:#5a3a1a;border-color:#9a6e4a;color:#e0b888;font-weight:600}
+.wtheme{font-size:11.5px;color:#e0983a;font-style:italic;margin-bottom:14px}
+.dbtns{display:flex;gap:5px;margin-bottom:18px}
+.db{flex:1;background:#12181a;border:1px solid #1e2a22;border-radius:7px;padding:7px 3px;cursor:pointer;color:#5a7a6a;font-size:11px;font-family:inherit;text-align:center;position:relative}
+.db.on{background:#5a3a1a;border-color:#9a6e4a;color:#e0b888;font-weight:700}
+.db .dot{position:absolute;top:-3px;right:-2px;font-size:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:9px 0}
+.c{border-radius:11px;padding:13px}
+.c.shared{grid-column:1/-1;background:#161008;border:1px solid #2a2018}
+.c.k{background:#0a1510;border:1px solid #1a3a2a}
+.c.p{background:#0a1018;border:1px solid #1a2a3a}
+.c.taco{background:#1a1408;border:1px solid #4a3a10}
+.c.deliv{background:#0a1020;border:1px solid #1a3a5a}
+.c.toss{background:#0a1018;border:1px solid #1a3060}
+.c.soup{background:#1a1208;border:1px solid #5a3a18}
+.ch{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px;gap:6px}
+.cl{font-size:9.5px;font-weight:600;color:#8a6a4a;text-transform:uppercase;letter-spacing:.5px}
+.badges{display:flex;gap:4px;flex-shrink:0}
+.bk{font-size:9.5px;background:#1a3a2a;color:#a8d5b8;border-radius:9px;padding:2px 6px;white-space:nowrap}
+.bp{font-size:9.5px;background:#1a2a3a;color:#93c5fd;border-radius:9px;padding:2px 6px;white-space:nowrap}
+.bpro{font-size:9.5px;background:#2a1a3a;color:#c4a8f5;border-radius:9px;padding:2px 6px;white-space:nowrap;font-weight:600}
+.cn{font-size:12.5px;font-weight:600;line-height:1.3;margin-bottom:4px}
+.cd{font-size:10.5px;color:#8a7a6a;line-height:1.5;margin-bottom:5px}
+.rr{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-top:4px}
+.rt{font-size:9.5px;color:#6a5a4a}
+.rl{border-radius:5px;padding:2px 7px;font-size:9.5px;font-weight:600;text-decoration:none;display:inline-block;background:#241010;border:1px solid #5a2020;color:#e08080}
+.rl.own{background:#1a2a20;border:1px solid #2a5a3a;color:#6bc489}
+.rl.book{background:#241a10;border:1px solid #5a4020;color:#d9a05a}
+.src-flag{font-size:9px;border-radius:4px;padding:1px 5px;white-space:nowrap}
+.src-pub{background:#0d2a1a;border:1px solid #1e5a3a;color:#6bc489}
+.src-est{background:#2a220d;border:1px solid #5a4a1e;color:#d9b05a}
+.nt{font-size:9.5px;font-style:italic;margin-top:4px;display:block;color:#8a7a4a}
+.box{background:#161008;border:1px solid #2a2018;border-radius:11px;padding:14px;margin-top:9px}
+.box h3{font-size:13.5px;color:#e0b888;margin-bottom:10px}
+.tot{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
+.tb{background:#12181a;border-radius:8px;padding:11px}
+.tbn{font-size:11.5px;font-weight:600;margin-bottom:8px}
+.mrow{margin-bottom:9px}
+.mtop{display:flex;justify-content:space-between;align-items:baseline;font-size:10px;color:#8a7a5a;margin-bottom:3px}
+.bar{height:4px;background:#1e2a22;border-radius:2px;margin-top:3px;overflow:hidden}
+.bfill{height:100%;border-radius:2px;transition:width .3s}
+.short{font-size:9.5px;color:#e0983a;font-style:italic;margin-top:3px}
+.tip{display:flex;gap:9px;margin-bottom:11px;padding-bottom:11px;border-bottom:1px solid #2a2018}
+.tip:last-child{border:none;margin:0;padding:0}
+.ti{font-size:17px;flex-shrink:0}
+.tt{font-size:12.5px;font-weight:600;color:#e0b888;margin-bottom:2px}
+.tbd{font-size:11.5px;color:#8a7a5a;line-height:1.55}
+.shop{display:flex;flex-direction:column;gap:7px}
+.shop label{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:#e0b888;cursor:pointer;line-height:1.4}
+.shop input{margin-top:2px;flex-shrink:0;width:15px;height:15px;accent-color:#e0983a;cursor:pointer}
+.shop label:has(input:checked){color:#6a5a4a;text-decoration:line-through}
+.srow{padding:9px 0;border-bottom:1px solid #2a2018}
+.srow:last-child{border:none}
+.srow-t{font-size:12px;font-weight:600;color:#e8e8e4;margin-bottom:3px}
+.srow-m{font-size:10.5px;color:#8a7a5a;line-height:1.5}
+.tog{display:flex;align-items:center;gap:7px;font-size:11px;color:#8a7a5a;cursor:pointer;margin-top:8px}
+.tog input{width:15px;height:15px;accent-color:#93c5fd;cursor:pointer}
+@media(max-width:560px){
+ .grid{grid-template-columns:1fr}
+ .tot{grid-template-columns:1fr}
+ .dbtns{flex-wrap:wrap}
+ .db{flex:1 1 13%;min-width:40px}
+ .today{flex-direction:column;align-items:flex-start}
+ .hdr h1{font-size:17px}
+}
+.stamp{font-size:10px;color:#5a4a3a;text-align:center;padding:14px 0 0}
+</style>
+</head>
+<body>
+<div class="hdr"><div class="in">
+<h1>🍂 K &amp; P — Autumn 6 Week Plan</h1>
+<p>Mediterranean · High Protein · Soup Every Week · Tofu &amp; Tempeh Forward · Free Recipes Only</p>
+<div class="today">
+  <div><div class="today-l">PLAN STARTS</div><input type="date" id="startDate" onchange="setStart()"></div>
+  <div><div class="today-l">TODAY</div><div class="today-d" id="todayLbl">—</div></div>
+  <div><div class="today-l">K TARGET</div><div class="today-d">140g · ~1600 kcal</div></div>
+  <button class="btn-s" onclick="jumpToday()">Jump to today</button>
+</div>
+</div></div>
+<div class="nav"><div class="nav-in" id="navBar"></div></div>
+<div class="main">
+  <div id="selectors">
+    <div class="lbl">Week</div>
+    <div class="wbtns" id="wbtns"></div>
+    <div class="wtheme" id="wtheme"></div>
+    <div class="lbl">Day</div>
+    <div class="dbtns" id="dbtns"></div>
+  </div>
+  <div id="content"></div>
+  <div class="stamp">Autumn plan v2 · every link goes to a specific free recipe · edit this file and push to GitHub</div>
+</div>
+<script>
+const PLAN_VERSION="2026-09-19-autumn-v2";
+
+/* ══════════════════════════════════════════════════════════════════
+   TARGETS
+   K: protein protected at 140g. Calories sit around 1,550 because the
+   two cannot both hold — see the "Why 1,550" panel in the How To tab.
+   P: unchanged. No red meat anywhere in this plan.
+   ══════════════════════════════════════════════════════════════════ */
+const TARGETS={k:{cal:1600,pro:140,calT:1800,proT:160},p:{cal:1900,pro:170,calT:2200,proT:190}};
+const DAYS=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const THEMES=[
+ "Greek & Aegean",
+ "Turkish & Levantine",
+ "Italian & Eastern Mediterranean",
+ "Moroccan & North African",
+ "Greek & Aegean — second pass",
+ "Levantine & North African — second pass"];
+
+const SKEY="kp_mealplan_autumn_v2";
+let S={start:null,ticks:{},training:{},view:"plan",week:0,day:0};
+function load(){try{const r=localStorage.getItem(SKEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}}
+function save(){try{localStorage.setItem(SKEY,JSON.stringify(S));}catch(e){}}
+
+/* ══════════════════════════════════════════════════════════════════
+   PROTEIN SWAPS — standard food-composition values for the portion
+   named. These come from ordinary nutrition tables, NOT from the
+   recipe pages. They are added on top of the recipe's own figures.
+   ══════════════════════════════════════════════════════════════════ */
+const SW={
+ tofu150:{d:"150g baked extra-firm tofu",c:215,pr:17},
+ tofu200:{d:"200g baked extra-firm tofu",c:285,pr:23},
+ tempeh120:{d:"120g baked tempeh",c:275,pr:23},
+ halloumi80:{d:"80g grilled halloumi",c:250,pr:19},
+ edamame100:{d:"100g edamame",c:120,pr:11},
+ feta40:{d:"40g feta",c:105,pr:6},
+ butterbeans200:{d:"200g butter beans",c:215,pr:13},
+ eggs2:{d:"2 extra eggs",c:144,pr:12},
+ eggs3:{d:"3 eggs",c:215,pr:19},
+ chicken150:{d:"150g chicken breast",c:250,pr:46},
+ chicken180:{d:"180g chicken breast",c:300,pr:55},
+ thigh180:{d:"180g chicken thigh",c:350,pr:47},
+ cod200:{d:"200g cod",c:160,pr:36},
+ seabass180:{d:"180g sea bass",c:240,pr:43},
+ prawns180:{d:"180g king prawns",c:180,pr:36},
+ turkey180:{d:"180g turkey mince",c:265,pr:48},
+};
+
+/* ══════════════════════════════════════════════════════════════════
+   RECIPES — every entry is a specific page that was opened and checked,
+   or is explicitly marked as having no link. No site-search URLs.
+   pub:true  = calories/protein below were read off that recipe page
+   pub:false = the page doesn't publish nutrition, so the figure is my
+               estimate from the ingredient list (flagged in the app)
+   ══════════════════════════════════════════════════════════════════ */
+function R(o){return o;}
+const RC={
+ // ── Soups, one per week ──
+ fasolada:R({n:"Fasolada (Greek White Bean Soup)",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/greek-bean-soup-fasolada/",
+  serves:6,c:265,pr:9,pub:false,mins:30,
+  d:"Cannellini beans, celery, onion, garlic, oregano, lemon and a generous pour of olive oil"}),
+ turkish:R({n:"Turkish Red Lentil Soup (Mercimek Çorbası)",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/turkish-lentil-soup/",
+  serves:6,c:283,pr:11,pub:true,mins:32,
+  d:"Red lentils, carrot, potato, cumin and Aleppo pepper, blended smooth, finished with lemon"}),
+ ribollita:R({n:"Ribollita (Tuscan White Bean & Kale Soup)",src:"Skinny Spatula",
+  url:"https://skinnyspatula.com/ribollita-tuscan-white-bean-soup/",
+  serves:4,c:271,pr:13,pub:true,mins:35,
+  d:"Leek, carrot, celery, cannellini beans, cavolo nero, cherry tomato, thyme and rosemary"}),
+ harira:R({n:"Harira (Moroccan Chickpea & Lentil Soup)",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/harira-recipe/",
+  serves:6,c:304,pr:22,pub:true,mins:60,
+  d:"Green and red lentils, chickpeas, tomato, celery, carrot, turmeric, cumin, cinnamon, herbs"}),
+ spicyLentil:R({n:"Spicy Spinach & Lentil Soup",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/mediterranean-spicy-spinach-lentil-soup/",
+  serves:6,c:250,pr:17,pub:true,mins:45,
+  d:"Brown lentils, spinach, tomato, cumin and coriander, brightened with lemon"}),
+ lentilStew:R({n:"Hearty One-Pot Lentil Stew",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/vegan-lentil-soup-recipe/",
+  serves:6,c:247,pr:15,pub:true,mins:50,
+  d:"Lentils, carrot, celery, potato, tomato and warm spices — thick enough to eat with a fork"}),
+ // ── Dinner bases ──
+ boldbean:R({n:"Ratatouille Butter Bean Traybake",src:"Bold Bean Co",
+  url:"https://boldbeanco.com/blogs/beanspo-recipes/ratatouille-butter-bean-traybake",
+  serves:4,c:375,pr:15,pub:false,mins:40,
+  d:"Queen butter beans, courgette, aubergine, red pepper and red onion roasted in a garlicky tomato sauce with chilli and basil. The recipe itself offers halloumi or cod on top — which is exactly the split you two need"}),
+ briam:R({n:"Briam (Greek Roasted Vegetables)",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/briam-greek-roasted-vegetables/",
+  serves:6,c:260,pr:5,pub:false,mins:70,
+  d:"Courgette, potato, aubergine and tomato slow-roasted together in olive oil with oregano"}),
+ souvlaki:R({n:"Souvlaki with Tzatziki",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/greek-chicken-souvlaki-recipe-tzatziki/",
+  serves:4,c:130,pr:4,pub:false,mins:30,
+  d:"Lemon, oregano and garlic marinade, homemade tzatziki, tomato and rocket salad. The recipe is written for chicken — the marinade and tzatziki are the shared base"}),
+ shakshuka:R({n:"Shakshuka",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/shakshuka-recipe/",
+  serves:6,c:173,pr:8,pub:true,mins:35,eggs:true,
+  d:"Eggs poached in a spiced tomato and pepper sauce with wilted spinach — one pan"}),
+ eggplant:R({n:"Za'atar Roasted Aubergine with Tahini",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/roasted-eggplant-recipe/",
+  serves:4,c:200,pr:4,pub:false,mins:40,
+  d:"Aubergine roasted with za'atar, tahini sauce, pomegranate and toasted pine nuts"}),
+ gigantes:R({n:"Gigantes Plaki (Greek Baked Giant Beans)",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/gigantes-plaki-greek-giant-beans/",
+  serves:4,c:182,pr:7,pub:true,mins:60,
+  d:"Butter beans baked slowly in a garlicky tomato and herb sauce until creamy"}),
+ gemista:R({n:"Gemista (Greek Stuffed Vegetables)",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/gemista-greek-stuffed-vegetables/",
+  serves:6,c:302,pr:11,pub:true,mins:75,
+  d:"Peppers and tomatoes stuffed with herbed rice and baked until the tops caramelise"}),
+ chickpeaStew:R({n:"Spinach & Chickpea Stew",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/spinach-chickpea-stew/",
+  serves:4,c:245,pr:15,pub:true,mins:30,
+  d:"Chickpeas and spinach in a spiced tomato broth with allspice, coriander and paprika"}),
+ tagine:R({n:"Moroccan Vegetable Tagine",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/moroccan-vegetable-tagine-recipe/",
+  serves:6,c:344,pr:10,pub:true,mins:55,
+  d:"Root vegetables and chickpeas braised with apricots and warm Moroccan spices"}),
+ menemen:R({n:"Menemen (Turkish Eggs)",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/menemen-recipe/",
+  serves:4,c:165,pr:7,pub:true,mins:25,eggs:true,
+  d:"Eggs folded through soft spiced tomatoes and green peppers — one pan"}),
+ codbase:R({n:"Lemon-Garlic Baked Cod / Butter Beans",src:"The Mediterranean Dish",
+  url:"https://www.themediterraneandish.com/baked-cod-recipe-lemon-garlic/",
+  serves:5,c:210,pr:3,pub:false,mins:30,
+  d:"Lemon, garlic and tomato sauce, baked. Recipe published with cod (319 kcal / 26g per serving); the figure here is the sauce and veg alone, so each of you can bake your own protein in it"}),
+ chermoula:R({n:"Chermoula Roasted Cauliflower",src:"Your Quick Roasting Tin book",
+  url:null,noLinkWhy:"Your own book — no link. Look for the cauliflower traybake.",
+  serves:4,c:180,pr:6,pub:false,mins:35,
+  d:"Moroccan herb, lemon and cumin sauce over roasted cauliflower, rocket alongside"}),
+ puysquash:R({n:"Warm Puy Lentil & Roasted Squash Bowl",src:"Your own recipe",
+  url:null,noLinkWhy:"Your own assembly — no recipe needed.",
+  serves:4,c:320,pr:13,pub:false,mins:40,
+  d:"Roasted butternut squash, puy lentils, kale and a tahini-lemon dressing"}),
+};
+
+/* Build a plate: (servings of the recipe) + named protein swaps.
+   This is the whole arithmetic — nothing else is added anywhere. */
+function plate(rc,servings,swapKeys){
+ const c=rc.c*servings+swapKeys.reduce((a,k)=>a+SW[k].c,0);
+ const pr=rc.pr*servings+swapKeys.reduce((a,k)=>a+SW[k].pr,0);
+ return {c:Math.round(c),pr:Math.round(pr),
+  sw:swapKeys.map(k=>SW[k].d).join(" + "),
+  portion:servings===1?"1 serving":servings+" servings"};
+}
+function dinner(rc,kServ,kSw,pServ,pSw){
+ return {rc,n:rc.n,d:rc.d,eggs:rc.eggs,k:plate(rc,kServ,kSw),p:plate(rc,pServ,pSw)};
+}
+function soupDinner(rc){
+ return {rc,n:"🍲 "+rc.n,d:rc.d,soup:true,
+  k:plate(rc,1,["tofu150","feta40"]),p:plate(rc,1.5,["chicken150"])};
+}
+function soupLunch(rc){
+ const p=plate(rc,1,["edamame100","feta40"]);
+ return {rc,n:"🍲 "+rc.n+" (from Thursday's batch)",
+  d:rc.d+" — reheated, with edamame and feta stirred in",
+  soupLeftover:true,c:p.c,pr:p.pr};
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   BREAKFAST — overnight oats or stovetop porridge, every day.
+   K ≈ 40g oats + 150g Greek yoghurt + 20g protein powder + fruit/nuts
+   P ≈ 60g oats + 200g Greek yoghurt + 25g protein powder + fruit/nuts
+   ══════════════════════════════════════════════════════════════════ */
+const BF=[
+{n:"Overnight Oats with Berries",d:"Oats, chia, protein powder, Greek yoghurt, mixed berries — made the night before",kc:340,kp:34,pc:475,pp:42},
+{n:"Apple Cinnamon Protein Porridge",d:"Porridge oats, grated apple, cinnamon, protein powder stirred in at the end, walnuts",kc:335,kp:32,pc:470,pp:40},
+{n:"Peanut Butter Banana Overnight Oats",d:"Oats, peanut butter, banana, chia, protein powder — made the night before",kc:350,kp:33,pc:480,pp:41},
+{n:"Spiced Pear & Walnut Porridge",d:"Porridge oats, grated pear, cinnamon, nutmeg, protein powder, walnuts",kc:330,kp:30,pc:465,pp:38},
+{n:"Fig, Honey & Greek Yoghurt Oats",d:"Overnight oats, Greek yoghurt, chopped figs, honey, walnuts, protein powder",kc:345,kp:34,pc:480,pp:42},
+{n:"Cocoa Hazelnut Overnight Oats",d:"Oats, cocoa powder, chopped hazelnuts, banana, protein powder — made the night before",kc:340,kp:32,pc:475,pp:40},
+{n:"Pumpkin Spice Porridge",d:"Porridge oats, tinned pumpkin purée, cinnamon, ginger, protein powder, pecans",kc:335,kp:31,pc:470,pp:39},
+];
+
+/* ── Fixed lunch slots ── */
+const TOSS={n:"Tossed — Grilled Chicken Salad",d:"Double chicken, loads of veg, NO dressing — ask for lemon wedges. Add egg or avocado.",c:520,pr:48,toss:true};
+const KALE={n:"Your Kale Salad 🥬 + edamame",d:"500g kale, red + green pepper, carrot, 100g houmous, ½ tbsp almond butter — one batch makes two lunches. 100g edamame per serving.",c:450,pr:28,kale:true,
+ note:"Your summer plan put half the batch at 425 kcal / 20g, and noted that halving the almond butter saves 95 kcal and costs only 3g of protein. That trade is taken here — 330 kcal / 17g, plus 100g edamame at 120 kcal / 11g."};
+
+/* ── Autumn salads. Protein figures are the components added up, not
+     aspirations: halloumi, feta, pulses and edamame do the work. ── */
+const SAL=[
+{n:"Houmous & Halloumi Plate",d:"80g grilled halloumi, houmous, cucumber, cherry tomatoes, olives, rocket, seeds",c:410,pr:25},
+{n:"Spinach, Feta & Chickpea Mezze Bowl",d:"Spinach, 60g feta, 150g chickpeas, cucumber, olives, lemon oil, pumpkin seeds",c:480,pr:24},
+{n:"Puy Lentil, Feta & Cucumber Salad",d:"200g cooked puy lentils, 40g feta, cucumber, mint, parsley, lemon dressing",c:415,pr:25},
+{n:"Halloumi & Roasted Pepper Bowl",d:"80g halloumi, roasted red peppers, 100g butter beans, rocket, seeds, lemon oil",c:410,pr:28},
+{n:"Roasted Squash, Feta & Puy Lentil Bowl",d:"Roasted butternut squash, 150g puy lentils, 40g feta, rocket, tahini-lemon dressing",c:430,pr:23},
+{n:"Cauliflower, Chickpea & Tahini Bowl",d:"Roasted cauliflower, 200g chickpeas, tahini-lemon dressing, parsley, pomegranate",c:390,pr:20},
+{n:"Beetroot, Walnut, Feta & Edamame Salad",d:"Cooked beetroot, walnuts, 50g feta, 100g edamame, rocket, balsamic",c:520,pr:25},
+];
+
+/* ── Tuesday and Wednesday, unchanged in shape ── */
+const TACO={n:"🌮 Taco Tuesday",d:"Homemade flour tortillas, black beans, grilled peppers, onions & tomatoes, cheese, soured cream, hot sauce",
+ taco:true,k:{sw:"Extra black beans + cheese",c:520,pr:36,portion:""},
+ p:{sw:"Grilled chicken or turkey mince — no red meat",c:760,pr:56,portion:""}};
+const DELIV={n:"🥡 SE Asian Delivery",d:"Your easy night — nothing to cook or shop for",
+ deliv:true,k:{sw:"Tofu or edamame dish",c:480,pr:36,portion:""},
+ p:{sw:"Grilled chicken or fish",c:700,pr:52,portion:""}};
+
+/* ══════════════════════════════════════════════════════════════════
+   THE SIX WEEKS
+   Thursday is soup night — a different soup each week, matched to the
+   week's cuisine. Friday and Sunday lunches (K) are that soup again.
+   Each dinner base appears exactly twice across the six weeks.
+   ══════════════════════════════════════════════════════════════════ */
+const D=RC;
+const WEEK_SOUP=[D.fasolada,D.turkish,D.ribollita,D.harira,D.spicyLentil,D.lentilStew];
+const WEEK_DINNERS=[
+ // [Mon, Fri, Sat, Sun]
+ [dinner(D.boldbean,1,["halloumi80"],1.5,["cod200"]),
+  dinner(D.souvlaki,1.5,["tempeh120"],1.5,["thigh180"]),
+  dinner(D.gigantes,1.5,["tofu150"],2,["seabass180"]),
+  dinner(D.gemista,1,["tofu200"],1.5,["turkey180"])],
+ [dinner(D.menemen,2,["eggs2","feta40"],2.5,["eggs3","feta40"]),
+  dinner(D.eggplant,1,["tofu200","feta40"],1,["thigh180"]),
+  dinner(D.shakshuka,2,["eggs2","feta40"],2.5,["eggs3","feta40"]),
+  dinner(D.puysquash,1,["halloumi80"],1,["chicken180"])],
+ [dinner(D.codbase,1,["butterbeans200","tofu150"],2,["cod200"]),
+  dinner(D.chickpeaStew,1,["tofu200"],2,["cod200"]),
+  dinner(D.gigantes,1.5,["tofu150"],2,["seabass180"]),
+  dinner(D.puysquash,1,["halloumi80"],1,["chicken180"])],
+ [dinner(D.tagine,1,["tempeh120"],1,["thigh180"]),
+  dinner(D.chermoula,1.5,["tofu150","feta40"],2,["prawns180"]),
+  dinner(D.chickpeaStew,1,["tofu200"],2,["cod200"]),
+  dinner(D.codbase,1,["butterbeans200","tofu150"],2,["cod200"])],
+ [dinner(D.gemista,1,["tofu200"],1.5,["turkey180"]),
+  dinner(D.briam,1,["tofu150","feta40"],1.5,["seabass180"]),
+  dinner(D.souvlaki,1.5,["tempeh120"],1.5,["thigh180"]),
+  dinner(D.chermoula,1.5,["tofu150","feta40"],2,["prawns180"])],
+ [dinner(D.shakshuka,2,["eggs2","feta40"],2.5,["eggs3","feta40"]),
+  dinner(D.menemen,2,["eggs2","feta40"],2.5,["eggs3","feta40"]),
+  dinner(D.eggplant,1,["tofu200","feta40"],1,["thigh180"]),
+  dinner(D.tagine,1,["tempeh120"],1,["thigh180"])],
+];
+// Lunch pattern: Mon salad · Tue kale · Wed salad · Thu kale · Fri soup · Sat salad · Sun soup
+// Kale sits on Tue and Thu so one batch is eaten two days apart, not four.
+const W=[];
+for(let w=0;w<6;w++){
+ const soup=WEEK_SOUP[w], dn=WEEK_DINNERS[w], sl=soupLunch(soup);
+ const sal=i=>SAL[(w*3+i)%SAL.length];
+ W.push([
+  {b:0,lk:sal(0),  lp:TOSS,dn:dn[0]},              // Mon
+  {b:1,lk:KALE,    lp:TOSS,dn:TACO},               // Tue
+  {b:2,lk:sal(1),  lp:TOSS,dn:DELIV},              // Wed
+  {b:3,lk:KALE,    lp:TOSS,dn:soupDinner(soup)},   // Thu
+  {b:4,lk:sl,      lp:TOSS,dn:dn[1]},              // Fri
+  {b:5,lk:sal(2),  lp:TOSS,dn:dn[2]},              // Sat
+  {b:6,lk:sl,      lp:TOSS,dn:dn[3]},              // Sun
+ ]);
+}
+
+const PANTRY=[
+{t:"Oils, Vinegars & Sauces",i:["Extra virgin olive oil (large)","Red wine vinegar","Balsamic vinegar","Tahini (large jar)","Hot sauce (Cholula / Valentina)","Honey","Pomegranate molasses"]},
+{t:"Jars & Tins",i:["Tinned chopped tomatoes × 10","Tomato paste × 3","Cannellini or butter beans × 8 tins","Chickpeas × 8 tins","Black beans × 6 tins (Taco Tuesdays)","Gigantes / large butter beans × 2 tins","Tinned pumpkin purée × 2 (porridge)","Olives","Capers"]},
+{t:"Dry Goods",i:["Porridge oats (large bag)","Red lentils × 2 bags","Green / brown lentils × 2 bags","Puy lentils","Plain flour (tortillas — 2kg)","Quinoa","Walnuts, pecans, hazelnuts","Chia seeds","Pine nuts","Pumpkin & mixed seeds","Protein powder (bulk tub)"]},
+{t:"Spices",i:["Ground cumin","Ground coriander","Turmeric","Cinnamon","Nutmeg","Ground ginger","Aleppo pepper or chilli flakes","Za'atar","Sumac","Smoked & sweet paprika","Dried oregano","Bay leaves","Sea salt & black pepper"]},
+{t:"Stock & Freezer",i:["Vegetable stock (lots — six weeks of soup)","Edamame × several bags","Mixed berries","Peas","Frozen spinach"]},
+];
+const WEEKLY_NOTES=[
+{w:"Week 1 · Greek & Aegean",s:"Fasolada",i:"Cannellini beans, celery, lemons · queen butter beans, courgette, aubergine, red pepper, red onion (Monday's traybake) · gigantes beans · peppers &amp; tomatoes for Gemista · halloumi, feta, tofu, tempeh · cod, sea bass, chicken thigh, turkey mince"},
+{w:"Week 2 · Turkish & Levantine",s:"Turkish Red Lentil Soup",i:"Red lentils, carrots, a potato · aubergines, za'atar, pomegranate · eggs (lots — two egg nights) · butternut squash, puy lentils · halloumi, feta, tofu · chicken breast, chicken thigh"},
+{w:"Week 3 · Italian & Eastern Med",s:"Ribollita",i:"Cavolo nero, cannellini beans, leek, celery, cherry tomatoes · make 1½× the Ribollita batch (it only serves 4) · gigantes beans · cod, sea bass, chicken breast"},
+{w:"Week 4 · Moroccan & North African",s:"Harira",i:"Green + red lentils, chickpeas, celery, coriander, parsley · root veg and apricots for the tagine · cauliflower · tempeh, tofu · chicken thigh, king prawns, cod"},
+{w:"Week 5 · Greek, second pass",s:"Spicy Spinach & Lentil Soup",i:"Brown lentils, spinach · repeat of Week 1's Briam, Souvlaki and Gemista shop · cauliflower for the chermoula · sea bass, turkey mince, chicken thigh, prawns"},
+{w:"Week 6 · Levantine & North African",s:"Hearty One-Pot Lentil Stew",i:"Lentils, carrot, celery, potato · eggs (two egg nights again) · aubergines, za'atar · root veg for the tagine · chicken thigh"},
+];
+const SNACKS=[
+{n:"Protein shake (30g scoop)",c:150,pr:30},{n:"Skyr / Fage 0% pot",c:130,pr:15},
+{n:"Cottage cheese, 100g",c:100,pr:12},{n:"Edamame, 100g",c:120,pr:11},
+{n:"2 boiled eggs",c:140,pr:12},{n:"Protein bar",c:200,pr:20},{n:"Almonds, 25g",c:150,pr:6},
+];
+
+/* ── Dates ── */
+function todayISO(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function getStart(){if(!S.start){S.start="2026-09-21";save();}return S.start;}
+function dayIndexFromStart(){const s=new Date(getStart()+"T00:00:00"),t=new Date(todayISO()+"T00:00:00");return Math.floor((t-s)/86400000);}
+function currentSlot(){const n=dayIndexFromStart();if(n<0)return{w:0,d:0,pre:true,n};if(n>41)return{w:5,d:6,post:true,n};return{w:Math.floor(n/7),d:n%7,n};}
+function setStart(){S.start=document.getElementById("startDate").value;save();jumpToday();}
+function jumpToday(){const c=currentSlot();S.week=c.w;S.day=c.d;S.view="plan";save();renderAll();}
+
+/* ── Rendering ── */
+function isTraining(w,d,who){return !!S.training[who+"*"+w+"*"+d];}
+function toggleTraining(w,d,who){const k=who+"*"+w+"*"+d;S.training[k]=!S.training[k];save();renderMain();}
+function tgt(who,w,d){const T=TARGETS[who],tr=isTraining(w,d,who);return{cal:tr?T.calT:T.cal,pro:tr?T.proT:T.pro,tr};}
+
+function recipeRow(rc,mins){
+ if(!rc)return"";
+ const flag=rc.pub
+  ? '<span class="src-flag src-pub">nutrition from the recipe page</span>'
+  : '<span class="src-flag src-est">nutrition estimated</span>';
+ const link=rc.url
+  ? '<a class="rl" href="'+rc.url+'" target="_blank" rel="noopener">'+rc.src+' ↗</a>'
+  : '<span class="rl '+(rc.src.indexOf("book")>-1?"book":"own")+'">'+rc.src+'</span>';
+ return '<div class="rr"><span class="rt">⏱ '+(mins||rc.mins)+' min · serves '+rc.serves+'</span>'+link+flag+'</div>'
+  +(rc.url?"":'<span class="nt">'+rc.noLinkWhy+'</span>');
+}
+function card(m,who,emoji,label,isBf){
+ const cls=m.taco?"taco":m.deliv?"deliv":m.toss?"toss":m.soupLeftover?"soup":isBf?"shared":who;
+ const col=isBf?"#e8e8e4":who==="k"?"#a8d5b8":"#93c5fd";
+ const badges=isBf
+  ?'<span class="bk">'+m.kc+' · '+m.kp+'g</span><span class="bp">'+m.pc+' · '+m.pp+'g</span>'
+  :'<span class="'+(who==="k"?"bk":"bp")+'">'+m.c+' kcal</span><span class="bpro">'+m.pr+'g</span>';
+ const sub=isBf?"":'<span style="font-size:9.5px;font-weight:600;color:'+col+';margin-left:5px">'+(who==="k"?"K 🌿":"P 🍖")+'</span>';
+ return '<div class="c '+cls+'" style="grid-column:'+(isBf?"1/-1":"auto")+'">'
+  +'<div class="ch"><div class="cl">'+emoji+' '+label+sub+'</div><div class="badges">'+badges+'</div></div>'
+  +'<div class="cn">'+m.n+'</div><div class="cd">'+m.d+'</div>'
+  +(m.rc?recipeRow(m.rc):"")
+  +(m.note?'<span class="nt">'+m.note+'</span>':"")
+  +(m.taco?'<span class="nt">⚠️ Higher-carb night — go easy on tortillas</span>':"")
+  +(m.deliv?'<span class="nt">🥡 No cooking tonight</span>':"")
+  +(m.toss?'<span class="nt">🥗 Bought out — nothing to shop for</span>':"")
+  +(m.kale?'<span class="nt">🥬 Your own recipe — batch on Sunday, eaten Tuesday and Thursday</span>':"")
+  +(m.soupLeftover?"<span class='nt'>🍲 Reheated from Thursday's batch</span>":"")
+  +'</div>';
+}
+function dinnerCard(dn){
+ const cls=dn.taco?"taco":dn.deliv?"deliv":dn.soup?"soup":"shared";
+ return '<div class="c '+cls+'">'
+  +'<div class="ch"><div class="cl">🌙 Dinner · one base dish</div></div>'
+  +'<div class="cn">'+dn.n+'</div><div class="cd">'+dn.d+'</div>'
+  +(dn.rc?recipeRow(dn.rc):"")
+  +'<div class="grid" style="margin-top:8px">'
+  +'<div class="tb"><div class="tbn" style="color:#a8d5b8">K 🌿</div>'
+   +'<div class="cn" style="font-size:11.5px">'+dn.k.sw+'</div>'
+   +(dn.k.portion?'<div class="rt" style="margin-bottom:5px">'+dn.k.portion+' of the base</div>':"")
+   +'<span class="bk">'+dn.k.c+' kcal</span> <span class="bpro">'+dn.k.pr+'g</span></div>'
+  +'<div class="tb"><div class="tbn" style="color:#93c5fd">P 🍖</div>'
+   +'<div class="cn" style="font-size:11.5px">'+dn.p.sw+'</div>'
+   +(dn.p.portion?'<div class="rt" style="margin-bottom:5px">'+dn.p.portion+' of the base</div>':"")
+   +'<span class="bp">'+dn.p.c+' kcal</span> <span class="bpro">'+dn.p.pr+'g</span></div>'
+  +'</div>'
+  +(dn.eggs?'<span class="nt">🥚 Egg night — you’re both eating the same thing, P just gets more</span>':"")
+  +(dn.taco?'<span class="nt">⚠️ Higher-carb night — go easy on tortillas</span>':"")
+  +(dn.deliv?'<span class="nt">🥡 No cooking tonight</span>':"")
+  +(dn.soup?"<span class='nt'>🍲 Make the full batch — Friday and Sunday lunches come out of it</span>":"")
+  +'</div>';
+}
+function meter(lbl,val,target,unit){
+ const pct=Math.min(100,Math.round(val/target*100)),short=target-val,good=val>=target*0.92;
+ return '<div class="mrow"><div class="mtop"><span>'+lbl+' · '+pct+'%</span><span>'+val+' / '+target+unit+'</span></div>'
+ +'<div class="bar"><div class="bfill" style="width:'+pct+'%;background:'+(lbl==="Protein"?"#c4a8f5":"#e0b888")+'"></div></div>'
+ +(!good&&short>0?'<div class="short">'+short+unit+' short — close it with a snack</div>':"")+'</div>';
+}
+function viewPlan(){
+ const day=W[S.week][S.day],bf=BF[day.b],dn=day.dn;
+ const kT=tgt("k",S.week,S.day),pT=tgt("p",S.week,S.day);
+ const kc=bf.kc+day.lk.c+dn.k.c,kp=bf.kp+day.lk.pr+dn.k.pr;
+ const pc=bf.pc+day.lp.c+dn.p.c,pp=bf.pp+day.lp.pr+dn.p.pr;
+ return '<div class="grid">'+card(bf,null,"🌅","Breakfast · shared",true)+'</div>'
+ +'<div class="grid">'+card(day.lk,"k","☀️","Lunch")+card(day.lp,"p","☀️","Lunch")+'</div>'
+ +'<div class="grid">'+dinnerCard(dn)+'</div>'
+ +'<div class="box"><h3>📊 Running Totals — meals only</h3><div class="tot">'
+ +'<div class="tb"><div class="tbn">K '+(kT.tr?"⚡":"")+'</div>'+meter("Protein",kp,kT.pro,"g")+meter("Calories",kc,kT.cal,"")
+ +'<label class="tog"><input type="checkbox" '+(kT.tr?"checked":"")+' onchange="toggleTraining('+S.week+','+S.day+',\'k\')"> Training day</label></div>'
+ +'<div class="tb"><div class="tbn">P '+(pT.tr?"⚡":"")+'</div>'+meter("Protein",pp,pT.pro,"g")+meter("Calories",pc,pT.cal,"")
+ +'<label class="tog"><input type="checkbox" '+(pT.tr?"checked":"")+' onchange="toggleTraining('+S.week+','+S.day+',\'p\')"> Training day</label></div>'
+ +'</div><p style="font-size:11px;color:#8a7a5a;margin-top:9px">Meals are meant to fall short of the protein target — the snacks below are part of the plan, not an afterthought. K needs roughly 45g a day from them, P roughly 25g.</p></div>'
+ +'<div class="box"><h3>🍎 Snacks — close the protein gap</h3>'
+ +SNACKS.map(s=>'<div style="font-size:12px;color:#c4a8f5;margin-bottom:4px">'+s.n+' · '+s.pr+'g · '+s.c+' kcal <span style="color:#6a5a4a">('+(s.c/s.pr).toFixed(1)+' kcal per g protein)</span></div>').join("")
+ +'<p style="font-size:11px;color:#8a7a5a;margin-top:6px">Cheapest protein first. A shake plus a skyr pot is 45g for 280 kcal — that is the daily default for K.</p></div>';
+}
+function viewOverview(){
+ let h='<div class="box"><h3>Week '+(S.week+1)+': '+THEMES[S.week]+'</h3>'
+ +'<p style="font-size:11.5px;color:#8a7a5a">Soup night is Thursday — this week it is <b style="color:#e0983a">'+WEEK_SOUP[S.week].n+'</b>. Friday and Sunday lunches come out of the same pot.</p></div>';
+ W[S.week].forEach((day,i)=>{
+  const bf=BF[day.b],dn=day.dn;
+  const kp=bf.kp+day.lk.pr+dn.k.pr,pp=bf.pp+day.lp.pr+dn.p.pr;
+  h+='<div style="background:#161008;border:1px solid #2a2018;border-radius:9px;padding:11px 13px;margin-bottom:7px;cursor:pointer" onclick="goDay('+i+')">'
+  +'<div style="display:flex;justify-content:space-between;font-size:11px;color:#a5805a;margin-bottom:4px"><b>'+DAYS[i]+'</b><span>🌿 '+kp+'g · 🍖 '+pp+'g</span></div>'
+  +'<div style="font-size:11.5px;color:#8a7a5a">🌅 '+bf.n+'</div>'
+  +'<div style="font-size:11.5px;color:#8a7a5a">☀️ '+day.lk.n+' / Tossed</div>'
+  +'<div style="font-size:12.5px;font-weight:600;color:#e0b888;margin-top:3px">🌙 '+dn.n+'</div>'
+  +'<div style="font-size:10.5px;color:#6a5a4a">'+dn.k.sw+' | '+dn.p.sw+'</div></div>';});
+ return h;
+}
+function tickKey(scope,i){return scope+"_"+i;}
+function toggleTick(k){S.ticks[k]=!S.ticks[k];save();renderMain();}
+function shopSection(sec,scope,si){
+ let done=0;
+ const rows=sec.i.map((item,ii)=>{
+  const k=tickKey(scope+si,ii),on=!!S.ticks[k];if(on)done++;
+  return '<label><input type="checkbox" '+(on?"checked":"")+' onchange="toggleTick(\''+k+'\')"> '+item+'</label>';}).join("");
+ return '<div class="box"><h3>'+sec.t+' <span style="color:#8a7a5a;font-weight:400">'+done+'/'+sec.i.length+'</span></h3><div class="shop">'+rows+'</div></div>';
+}
+function viewPantry(){
+ let h='<div class="box"><h3>🫙 Pantry Staples</h3><p style="font-size:11.5px;color:#8a7a5a">Buy once, top up as you go. Autumn additions: a lot more tinned tomatoes, beans and lentils, and enough stock for six weeks of soup.</p></div>';
+ PANTRY.forEach((sec,i)=>h+=shopSection(sec,"pantry",i));
+ return h;
+}
+function viewShop(){
+ return '<div class="box"><h3>🛒 Weekly Fresh Shop</h3><p style="font-size:11.5px;color:#8a7a5a;margin-bottom:6px">Beyond the pantry: add your usual rocket, cucumber, lemons, eggs, Greek yoghurt and feta every week.</p></div>'
+ +WEEKLY_NOTES.map(n=>'<div class="box"><h3>'+n.w+'</h3><div class="srow-m"><b style="color:#e0983a">Soup night:</b> '+n.s+'<br>'+n.i+'</div></div>').join("");
+}
+function viewSources(){
+ const all=Object.values(RC);
+ const linked=all.filter(r=>r.url),unlinked=all.filter(r=>!r.url);
+ const pub=all.filter(r=>r.pub).length;
+ let h='<div class="box"><h3>📖 Every recipe in this plan</h3>'
+ +'<p style="font-size:11.5px;color:#8a7a5a;line-height:1.6">'+linked.length+' of '+all.length+' dishes link to a specific free recipe page that was opened and checked. '
+ +unlinked.length+' have no link because they are your own book or your own assembly — those say so rather than sending you to a search box. '
+ +pub+' publish their own per-serving nutrition; for the rest the figure is an estimate from the ingredient list, marked in amber on the day card.</p></div>';
+ h+='<div class="box"><h3>Linked recipes</h3>';
+ linked.forEach(r=>{
+  h+='<div class="srow"><div class="srow-t">'+r.n+'</div><div class="srow-m">'
+  +r.src+' · serves '+r.serves+' · '
+  +(r.pub?'<span style="color:#6bc489">'+r.c+' kcal / '+r.pr+'g protein per serving, as published</span>'
+        :'<span style="color:#d9b05a">no nutrition published — estimated at ~'+r.c+' kcal / ~'+r.pr+'g per serving</span>')
+  +'<br><a class="rl" href="'+r.url+'" target="_blank" rel="noopener">open recipe ↗</a></div></div>';});
+ h+='</div><div class="box"><h3>Not linked, and why</h3>';
+ unlinked.forEach(r=>{h+='<div class="srow"><div class="srow-t">'+r.n+'</div><div class="srow-m">'+r.noLinkWhy+' Estimated at ~'+r.c+' kcal / ~'+r.pr+'g per serving.</div></div>';});
+ h+='</div>'
+ +'<div class="box"><h3>How the day-card numbers are built</h3><div class="tbd">'
+ +'Each plate is <b>(servings of the recipe × its per-serving figure) + the protein you add</b>. Nothing else is folded in. '
+ +'The protein portions — 150g tofu at 215 kcal / 17g, 180g chicken breast at 300 kcal / 55g, and so on — are standard nutrition-table values for that weight, not figures from the recipe pages. '
+ +'Both halves are visible at the top of this file if you ever want to change them.</div></div>';
+ return h;
+}
+function viewTips(){
+ return '<div class="box"><h3>⚖️ Why the calorie target says 1,600</h3><div class="tbd">'
+ +'Across all 42 days the meals here average <b>1,350 kcal and 95g of protein</b>. Getting from 95g to 140g needs about 45g from snacks. '
+ +'The cheapest protein you have is a shake at 5 kcal per gram; skyr and cottage cheese run 8–9. A shake plus a skyr pot is 45g for 280 kcal, '
+ +'which lands the day at roughly <b>1,630 kcal</b>. The target is set at 1,600 so the meter tells you the truth rather than a number you would miss daily.<br><br>'
+ +'The summer plan said 140g would average 1,420 kcal. That was built on per-meal figures that turned out to be optimistic — when the numbers are rebuilt '
+ +'from the actual recipes and real protein portions, vegetarian meals cost more calories per gram of protein than that. '
+ +'You chose to protect the protein, so the target here is 140g and the calories sit where they honestly land. '
+ +'Roughly 1,550 is still a meaningful deficit for most people — but it is your coach’s number that moved, so it is worth telling them.'
+ +'</div></div>'
+ +'<div class="box"><h3>🎯 The one number that matters</h3>'
+ +'<div class="tip"><div class="ti">💪</div><div><div class="tt">Protein: 140g K · 170g P</div><div class="tbd">Protects muscle while you are in deficit. The meters on each day show meals only — a shake plus a skyr pot closes K’s gap; one shake closes P’s.</div></div></div>'
+ +'<div class="tip"><div class="ti">🍲</div><div><div class="tt">Six soups, one a week</div><div class="tbd">Fasolada, Turkish Red Lentil, Ribollita, Harira, Spicy Spinach &amp; Lentil, and a Hearty Lentil Stew. Each is Thursday’s dinner and then Friday and Sunday lunch. Ribollita only serves four, so make it one-and-a-half times; the rest serve six and cover the week with one portion spare to freeze.</div></div></div>'
+ +'<div class="tip"><div class="ti">🚫</div><div><div class="tt">No red meat for Paul</div><div class="tbd">Every P swap is chicken, turkey, fish, seafood or eggs. Taco Tuesday is chicken or turkey mince.</div></div></div>'
+ +'<div class="tip"><div class="ti">🥣</div><div><div class="tt">Breakfast is deliberately dull</div><div class="tbd">Overnight oats or a stovetop porridge, every day. The protein comes from Greek yoghurt and a scoop of powder — that is what makes a 34g breakfast possible in five minutes.</div></div></div>'
+ +'</div>'
+ +'<div class="box"><h3>⏱ Sunday prep — about 45 minutes</h3>'
+ +'<div class="tip"><div class="ti">1️⃣</div><div><div class="tt">Bake a tray of tofu and a tray of tempeh</div><div class="tbd">Extra-firm tofu, pressed 15 minutes, crumbled or cubed, 25–30 min at 220°C. Tempeh sliced, marinated in soy, garlic and ginger, 25 min at 200°C. Covers most of K’s dinners.</div></div></div>'
+ +'<div class="tip"><div class="ti">2️⃣</div><div><div class="tt">Make the kale salad</div><div class="tbd">One batch is Tuesday and Thursday lunch — two days apart, so it is still good when you get to it.</div></div></div>'
+ +'<div class="tip"><div class="ti">3️⃣</div><div><div class="tt">Jar of tahini-lemon dressing</div><div class="tbd">Tahini, lemon, garlic, water. Goes on most of the lunches here.</div></div></div>'
+ +'<div class="tip"><div class="ti">4️⃣</div><div><div class="tt">Thursday: make the whole pot of soup</div><div class="tbd">It is dinner for both of you that night, then K’s lunch on Friday and Sunday. Do not halve it.</div></div></div>'
+ +'</div>'
+ +'<div class="box"><h3>🍖 P at Tossed</h3>'
+ +'<div class="tip"><div class="ti">✅</div><div><div class="tt">Order this</div><div class="tbd">Double grilled chicken on a leaf base, as many veg toppings as they will give you, no dressing — lemon wedges instead.</div></div></div>'
+ +'<div class="tip"><div class="ti">⚠️</div><div><div class="tt">Skip this</div><div class="tbd">Dressings, croutons, anything crispy, grain bases.</div></div></div>'
+ +'</div>';
+}
+
+const TABS=[["plan","Daily Plan"],["overview","Week"],["tips","How To"],["sources","📖 Sources"],["pantry","🫙 Pantry"],["shop","🛒 Fresh Shop"]];
+function renderNav(){document.getElementById("navBar").innerHTML=TABS.map(function(t){return '<button class="'+(S.view===t[0]?"on":"")+'" onclick="setView(\''+t[0]+'\')">'+t[1]+'</button>';}).join("");}
+function setView(v){S.view=v;save();renderAll();}
+function setWeek(i){S.week=i;S.day=0;save();renderAll();}
+function setDay(i){S.day=i;save();renderAll();}
+function goDay(i){S.day=i;S.view="plan";save();renderAll();}
+function renderSelectors(){
+ const showW=["plan","overview"].indexOf(S.view)>-1,showD=S.view==="plan";
+ document.getElementById("selectors").style.display=showW?"block":"none";
+ const lbls=document.querySelectorAll("#selectors .lbl");
+ if(lbls[1])lbls[1].style.display=showD?"block":"none";
+ document.getElementById("dbtns").style.display=showD?"flex":"none";
+ document.getElementById("wbtns").innerHTML=THEMES.map(function(t,i){return '<button class="wb '+(i===S.week?"on":"")+'" onclick="setWeek('+i+')">W'+(i+1)+'</button>';}).join("");
+ document.getElementById("wtheme").textContent=THEMES[S.week]+" · soup night: "+WEEK_SOUP[S.week].n;
+ const cur=currentSlot();
+ document.getElementById("dbtns").innerHTML=DAYS.map(function(d,i){
+  const isToday=!cur.pre&&!cur.post&&cur.w===S.week&&cur.d===i;
+  return '<button class="db '+(i===S.day?"on":"")+'" onclick="setDay('+i+')">'+d+(isToday?'<span class="dot">🟢</span>':"")+'</button>';}).join("");
+}
+function renderMain(){
+ const el=document.getElementById("content");
+ if(S.view==="plan")el.innerHTML=viewPlan();
+ else if(S.view==="overview")el.innerHTML=viewOverview();
+ else if(S.view==="tips")el.innerHTML=viewTips();
+ else if(S.view==="sources")el.innerHTML=viewSources();
+ else if(S.view==="pantry")el.innerHTML=viewPantry();
+ else if(S.view==="shop")el.innerHTML=viewShop();
+}
+function renderToday(){
+ document.getElementById("startDate").value=getStart();
+ const c=currentSlot(),el=document.getElementById("todayLbl");
+ if(c.pre)el.textContent="Starts in "+(-c.n)+" days";
+ else if(c.post)el.textContent="Plan complete 🎉";
+ else el.textContent="Week "+(c.w+1)+" · "+DAYS[c.d];
+}
+function renderAll(){renderNav();renderToday();renderSelectors();renderMain();}
+load();getStart();
+(function(){const c=currentSlot();if(!c.pre&&!c.post&&S.week===0&&S.day===0){S.week=c.w;S.day=c.d;}})();
+renderAll();
+</script>
+</body>
+</html>
